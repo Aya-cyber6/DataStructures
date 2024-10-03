@@ -42,6 +42,10 @@ int pop(){
     return data;
 }
 
+int peek(){
+   return stack[top];
+}
+
 int main(){
    int i;
    push(44);
@@ -55,6 +59,7 @@ int main(){
    for(i = 0; i < 8; i++) {
       printf("%d ", stack[i]);
    }
+   printf("\nElement at top of the stack: %d" ,peek());
    
    /*printf("Element at top of the stack: %d\n" ,peek());*/
    printf("\nElements popped: \n");
