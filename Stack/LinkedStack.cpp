@@ -2,9 +2,10 @@
 using namespace std;
 
 class Node{
-    public:
+  public:
     int data;
     Node* next;
+
     Node(int new_data){
         this->data = new_data;
         this->next = nullptr;
@@ -12,7 +13,6 @@ class Node{
 };
 
 class Stack{
-    
     // head of the linked list
     Node* head;
 public:    
@@ -46,14 +46,6 @@ public:
         delete temp;
     }
   }  
-/*   int peek(){
-    if (!isempty())
-    return head->data;
-    else{
-         cout << "\nStack is empty";
-        return INT_MIN;
-    }
-  } */
         // Function to return the top element of the stack
     int peek() {
 
@@ -65,13 +57,10 @@ public:
             return INT_MIN;
         }
     }
-
-
 };
 
 int main(){
     Stack st;
-
     st.push(5);
     st.push(6);
     st.push(7);
@@ -80,12 +69,11 @@ int main(){
        // Print top element of the stack
     cout << "Top element is " << st.peek() << endl;
 
-
     printf("Poping off some elements\n");
     st.pop();
     st.pop();
     
-   cout << "Top element is " << st.peek() << endl;
+    cout << "Top element is " << st.peek() << endl;
 
 
 
