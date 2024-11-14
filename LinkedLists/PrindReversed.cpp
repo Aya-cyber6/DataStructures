@@ -53,6 +53,25 @@ void insertAtPos(int pos, int data){
     prev->next = temp;
 }
 
+void Delete(int n){
+
+    struct Node *temp1 = head;
+    if (n == 1){
+    head = temp1->next;
+    free(temp1);
+    return;
+    }
+
+    for (int i =0; i<n-2; i++){
+        temp1 = temp1->next;  // the n-1 th node
+    }
+    struct Node* temp2 = temp1->next; // the nth node
+    temp1->next = temp2->next;
+    free(temp2);
+
+}
+
+
 int main(){
   
     insert(1);
@@ -61,7 +80,11 @@ int main(){
     insert(8);
     print(head);
     insertAtPos(3, 9);
+    cout<<"After insertion:\n";
     print(head);
     ReversePrint(head);
+    Delete(2);
+    cout<<"\nAfter deletion:\n";
+     print(head);
     cout<<"Great!!!!!!!";
 }
