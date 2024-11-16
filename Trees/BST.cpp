@@ -10,25 +10,27 @@ struct BSTnode{
            ////////STILL WORKING ON THIS/////////
 /* void insert(int a){
     struct BSTnode* newNode = new BSTnode();
+    newNode->data = a;
+
         if(root == NULL){
-            newNode->data = a;
             root = newNode;
             return;
         }
+
         BSTnode *current = root;
+
         while (a >= current->data){
             if (current->right != NULL){
                 current = current->right;
             }
+            current->right = newNode;
           }
 
         while (a <= current->data){
             if (current->left != NULL){
                 current = current->left;
             }
-                newNode = current->left;
-                newNode->data = a;
-                newNode->left, newNode->right = NULL;
+                current->left = newNode;
           }
 } */
 
@@ -51,6 +53,31 @@ bool search(BSTnode* root, int data){
     else if(root->data == data) return true;
     else if(root->data <= data) return search(root->right, data);
     else return search(root->left, data);
+}
+
+
+void inorder(BSTnode *root){
+    if(root!=NULL){
+        if(root->left!=NULL) inorder(root->left);
+        printf("%d" ,root->data);
+        if(root->right!=NULL) inorder(root->right);
+    }
+}
+
+void preorder(BSTnode *root){
+    if(root!=NULL){
+     printf("%d" ,root->data);
+     preorder(root->left);
+     preorder(root->right);
+    }
+}
+
+void postorder(BSTnode *root){
+    if(root!=NULL){
+     preorder(root->left);
+     preorder(root->right);
+     printf("%d" ,root->data);     
+    }
 }
 
 int main(){
